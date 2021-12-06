@@ -18,7 +18,7 @@ connection.once("open", () => console.log("Povezan na MongoDB bazu!"));
 const activities = require("./routes/activities");
 const users = require("./routes/users");
 
-app.use("/activities", activities);
-app.use("/users", users);
+app.use("/api/activities", activities);
+app.use("/api/users", users);
 
 app.listen(port, () => console.log(`Server pokrenut na portu: ${port}!`));

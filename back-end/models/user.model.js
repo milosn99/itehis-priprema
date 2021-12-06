@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
     unique: true,
     minlength: 3,
   },
-  age: Number,
 });
 
 const User = mongoose.model("User", userSchema);

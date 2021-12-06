@@ -1,18 +1,32 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import CreateActivity from "./components/CreateActivity";
+import ActivityList from "./components/ActivityList";
+import EditActivity from "./components/EditActivity";
+import CreateUser from "./components/CreateUser";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className='container'>
+      <div className="container">
         <Navbar />
-        {/* <br />
-        <Route path='/' exact component={ExercisesList} />
-        <Route path='/edit/:id' component={EditExercise} />
-        <Route path='/create' component={CreateExercise} />
-        <Route path='/user' component={CreateUser} /> */}
+        <br />
+        <Switch>
+          <Route path="/" exact>
+            <ActivityList />
+          </Route>
+          <Route exact path="/edit/:id">
+            <EditActivity />
+          </Route>
+          <Route exact path="/create">
+            <CreateActivity />
+          </Route>
+          <Route path="/user">
+            <CreateUser />
+          </Route>
+        </Switch>
       </div>
     </BrowserRouter>
   );

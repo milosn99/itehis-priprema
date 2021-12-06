@@ -3,7 +3,7 @@ const Activity = require("../models/activity.model");
 
 router.get("/", (req, res) => {
   Activity.find()
-    .select("username description -_id")
+    .select("-__v")
     .then((activities) => {
       res.status(200).send(activities);
     })
@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/add", (req, res) => {
+router.post("/", (req, res) => {
   const username = req.body.username;
   const description = req.body.description;
   const date = req.body.date;
